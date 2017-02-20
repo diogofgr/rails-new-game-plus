@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'transactions/index'
+
+  get 'transactions/show'
+
   get 'product_offers/index'
 
   get 'product_offers/show'
