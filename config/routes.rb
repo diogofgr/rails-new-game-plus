@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'product_offers/index'
+
+  get 'product_offers/show'
+
+  get 'product_offers/new'
+
+  get 'product_offers/create'
+
+  get 'product_offers/edit'
+
+  get 'product_offers/update'
+
+  get 'product_offers/destroy'
+
   get 'users/show'
 
   get 'users/new'
