@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220164546) do
+ActiveRecord::Schema.define(version: 20170220191831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "product_offers", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "product_id"
+    t.integer  "users_id"
+    t.integer  "products_id"
     t.integer  "price"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_product_offers_on_product_id", using: :btree
-    t.index ["user_id"], name: "index_product_offers_on_user_id", using: :btree
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["products_id"], name: "index_product_offers_on_products_id", using: :btree
+    t.index ["users_id"], name: "index_product_offers_on_users_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20170220164546) do
     t.string   "order_status"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "buyer_id"
+    t.integer  "product_offer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,6 +54,6 @@ ActiveRecord::Schema.define(version: 20170220164546) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "product_offers", "products"
-  add_foreign_key "product_offers", "users"
+  add_foreign_key "product_offers", "products", column: "products_id"
+  add_foreign_key "product_offers", "users", column: "users_id"
 end
