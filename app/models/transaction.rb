@@ -3,5 +3,5 @@ class Transaction < ApplicationRecord
   belongs_to :product_offers
 
   validates :delivery_address, presence: true
-  validates :return_address, true
+  validates :return_address, presence: true
 end
