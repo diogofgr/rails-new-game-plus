@@ -10,9 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170220164546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "product_offers", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "products_id"
+    t.integer  "price"
+    t.string   "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["products_id"], name: "index_product_offers_on_products_id", using: :btree
+    t.index ["users_id"], name: "index_product_offers_on_users_id", using: :btree
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "platform"
+    t.string   "genre"
+    t.integer  "release_year"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string   "delivery_address"
+    t.string   "return_address"
+    t.string   "order_status"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.boolean  "seller"
+    t.string   "username"
+    t.string   "address"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "product_offers", "products", column: "products_id"
+  add_foreign_key "product_offers", "users", column: "users_id"
 end
