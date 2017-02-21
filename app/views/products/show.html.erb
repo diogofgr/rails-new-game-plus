@@ -5,3 +5,10 @@
 <p>Description:</p>
 
 <%= image_tag("http://placehold.it/350x500", :alt => "") %>
+
+<div>
+  <div class="offer-games"> <%@product.product_offers.each do |offer| %> </div>
+  <div> <%= offer.price %></div>
+  <div> <%= offer.location %></div>
+  <div> <% end %></div>
+</div>
