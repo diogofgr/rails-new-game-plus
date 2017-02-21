@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  # devise_for :users,
-  #   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :users do
     resources :product_offers do
