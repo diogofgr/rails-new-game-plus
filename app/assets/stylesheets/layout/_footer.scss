@@ -2,7 +2,10 @@
 .footer {
   background-color: #151515;
   padding: 30px;
-  height: 140px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .left {
@@ -15,13 +18,13 @@
   justify-content: space-around;
 }
 
-a {
+.footer a {
   color: white;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
-a:hover {
+.footer a:hover {
   color: $orange;
   text-decoration: none;
   transition: all 0.2s ease;
