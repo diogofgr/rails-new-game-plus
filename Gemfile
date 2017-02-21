@@ -19,6 +19,7 @@ gem 'devise'
 
 gem 'omniauth-facebook'
 
+gem 'unirest'
 
 
 group :development, :test do
