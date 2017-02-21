@@ -9,16 +9,21 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top: 700px">
   <h2>Stuff from the API here:</h2>
-  <%= response = Unirest.get "https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name&limit=50&offset=0&order=name%3Aasc",
+  <%= response = Unirest.get "https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=*&limit=50&order=name%3Aasc&search=assassins",
   headers:{
-    "X-Mashape-Key" => "uexCl2svqwmshtvFj8S6P7AvWhoIp1KH4EfjsnG4XtFHPVJrRV",
+    "X-Mashape-Key" => ENV["x_mashape_key"],
     "Accept" => "application/json"
   } %>
   <% response.body.each do |game| %>
   <p><%= game["name"] %></p>
+  <p><%= game["human"] %></p>
+  <p><%= game["genres"] %></p>
+
   <% end %>
+
+
 
 
 </div>
