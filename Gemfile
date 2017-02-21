@@ -4,7 +4,7 @@ ruby '2.3.3'
 gem 'rails', '5.0.1'
 gem 'puma'
 gem 'pg'
-gem 'figaro'
+gem 'figaro', '~> 1.1.1'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
 
@@ -16,6 +16,10 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
+
+gem 'omniauth-facebook'
+
+
 
 group :development, :test do
   gem 'binding_of_caller'
