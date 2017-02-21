@@ -18,11 +18,12 @@ gem 'autoprefixer-rails'
 gem 'devise'
 
 gem 'omniauth-facebook'
-
 gem 'unirest'
 
 
 group :development, :test do
+  gem 'web-console', '>= 3.3.0'
+
   gem 'binding_of_caller'
   gem 'better_errors'
 
