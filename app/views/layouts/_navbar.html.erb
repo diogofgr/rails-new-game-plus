@@ -34,9 +34,9 @@
           <% if user_session.nil? %>
             <li><%= link_to "Sign in", new_user_session_path %></li>
           <% else %>
-            <li><%= link_to "Profile", user_path %></li>
-            <li><%= link_to "Sell a game", new_user_product_offer_path %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Sell a game", new_user_product_offer_path(current_user) %></li>
+            <li><%= link_to "Log out", destroy_user_session_path(current_user), method: :delete %></li>
           <% end  %>
         </ul>
       </div>
@@ -53,10 +53,10 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_session.nil? %>
           <li><%= link_to "Sign in", new_user_session_path %></li>
-        <% else %>
-          <li><%= link_to "Profile", user_path %></li>
-          <li><%= link_to "Sell a game", new_user_product_offer_path %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Sell a game", new_user_product_offer_path(current_user) %></li>
+            <li><%= link_to "Log out", destroy_user_session_path(current_user), method: :delete %></li>
         <% end %>
       </ul>
     </div>

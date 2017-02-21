@@ -1,0 +1,8 @@
+<%= simple_form_for [current_user, @product_offer] do |po| %>
+
+  <%= po.input :product_id, collection: Product.all %>
+  <%= po.input :price %>
+  <%= po.input :location %>
+  <%= po.button :submit %>
+
+<% end %>

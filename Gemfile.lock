@@ -201,6 +201,11 @@ GEM
       rest-client (~> 1.6.7)
     warden (1.2.7)
       rack (>= 1.0)
+    web-console (3.4.0)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
+      debug_inspector
+      railties (>= 5.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -232,6 +237,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   uglifier
   unirest
+  web-console (>= 3.3.0)
 
 RUBY VERSION
    ruby 2.3.3p222
