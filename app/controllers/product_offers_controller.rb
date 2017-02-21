@@ -10,8 +10,7 @@ class ProductOffersController < ApplicationController
   end
 
   def create
-    raise
-    @user = User.find(params[:user_id])
+    @user = current_user
 
     @new_product_offer = ProductOffer.new(product_offer_params)
     @new_product_offer.user =  @user
