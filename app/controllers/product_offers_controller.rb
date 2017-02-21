@@ -17,7 +17,7 @@ class ProductOffersController < ApplicationController
     #// @new_product_offer.product - currently being asked to user to input as a integer
 
     if @new_product_offer.save
-      redirect_to product_product_offer_path(@new_product_offer)
+      redirect_to product_path(product_offer_params[:product_id])
     else
       render :new
     end
