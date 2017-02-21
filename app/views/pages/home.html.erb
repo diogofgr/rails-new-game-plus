@@ -8,12 +8,14 @@
 
 <div class="container">
   <h2>Stuff from the API here:</h2>
-  <%= response = Unirest.get "https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name&limit=10&offset=0&order=release_dates.date%3Adesc&search=zelda",
+  <%= response = Unirest.get "https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name&limit=50&offset=0&order=name%3Aasc",
   headers:{
     "X-Mashape-Key" => "uexCl2svqwmshtvFj8S6P7AvWhoIp1KH4EfjsnG4XtFHPVJrRV",
     "Accept" => "application/json"
   } %>
-  <p><%= response.body %></p>
+  <% response.body.each do |game| %>
+  <p><%= game["name"] %></p>
+  <% end %>
 
 
 </div>
