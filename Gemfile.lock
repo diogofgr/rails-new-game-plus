@@ -206,7 +206,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   devise
-  figaro
+  figaro (~> 1.1.1)
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
