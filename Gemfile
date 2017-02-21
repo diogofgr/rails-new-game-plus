@@ -22,6 +22,8 @@ gem 'omniauth-facebook'
 
 
 group :development, :test do
+  gem 'web-console', '>= 3.3.0'
+
   gem 'binding_of_caller'
   gem 'better_errors'
 
