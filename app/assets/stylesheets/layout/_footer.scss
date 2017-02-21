@@ -1,1 +1,33 @@
 // Your footer style
+.footer {
+  background-color: #151515;
+  padding: 30px;
+  height: 140px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: $orange;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.fa {
+  font-size: 25px;
+  margin: 0 10px;
+}
