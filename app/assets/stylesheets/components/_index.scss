@@ -5,3 +5,17 @@
 #page-body {
   margin-bottom: 120px;
 }
+
+.btn-facebook {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: $facebook-blue-light;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.btn-facebook:hover {
+  color: white;
+  background-color: $facebook-blue;
+  transition: all 0.2s ease;
+}
