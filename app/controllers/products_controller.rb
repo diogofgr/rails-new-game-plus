@@ -6,7 +6,10 @@ class ProductsController < ApplicationController
     else
       @products = Product.all.order("created_at DESC")
     end
+
   end
+
+
 
   def show
     @product = Product.find(params[:id])
