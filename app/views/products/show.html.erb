@@ -1,14 +1,24 @@
-<h1><%= @product.name %></h1>
-<h2><%= @product.release_year %></h2>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="wrapper">
+  <div class="container">
+    <h1><%= @product.name %></h1>
+    <h2><%= @product.release_year %></h2>
+    <p>Find me in app/views/products/show.html.erb</p>
 
-<p>Description:</p>
+    <p>Description:</p>
 
-<%= image_tag("http://placehold.it/350x500", :alt => "") %>
+    <%= image_tag("http://placehold.it/350x500", :alt => "") %>
+  </div>
+</div>
 
-<div>
-  <div class="offer-games"> <%@product.product_offers.each do |offer| %> </div>
-  <div> <%= offer.price %></div>
-  <div> <%= offer.location %></div>
-  <div> <% end %></div>
+
+<div class="wrapper">
+  <div class="container offer-games">
+    <%@product.product_offers.each do |offer| %>
+    <% seller = User.find(offer.user_id)  %>
+    <%= seller.first_name || "(name not provided)" %>
+    <%= offer.location %>
+    <%= offer.price %>
+    <%= link_to 'Buy', root_path, class: "btn btn-success" %>
+    <% end %>
+  </div>
 </div>
