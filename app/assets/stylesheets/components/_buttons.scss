@@ -14,29 +14,29 @@
 
 .btn-orange {
   padding: 8px 20px;
-  border-radius: 4px;
-  border: solid white 1.5px;
+  // border-radius: 4px;
+  // border: solid white 1.5px;
   color: white;
   font-size: 14px;
+  font-weight: bold;
   transition: all 0.2s ease;
 }
 
 .btn-orange:hover {
-  color: white;
-  background-color: $orange;
+  color: $orange;
   transition: all 0.2s ease;
 }
 .btn-yellow {
   padding: 8px 20px;
   border-radius: 4px;
-  border: solid white 1.5px;
+  border: white 1.5px;
   color: white;
   font-size: 14px;
+  font-weight: bold;
   transition: all 0.2s ease;
 }
 
 .btn-yellow:hover {
-  color: white;
-  background-color: $yellow-dark;
+  color: $yellow;
   transition: all 0.2s ease;
 }
