@@ -11,14 +11,16 @@
 </div>
 
 
-<div class="wrapper padded">
+<div class="wrapper">
   <div class="container offer-games">
     <%@product.product_offers.each do |offer| %>
-    <% seller = User.find(offer.user_id)  %>
-    <%= seller.first_name || "(name not provided)" %>
-    <%= offer.location %>
-    <%= offer.price %>
-    <%= link_to 'Buy', root_path, class: "btn btn-success" %>
-    <% end %>
+    <div class="row">
+      <% seller = User.find(offer.user_id)  %>
+      <%= seller.first_name || "(name not provided)" %>
+      <%= offer.location %>
+      <%= offer.price %>
+      <%= link_to 'Buy', root_path, class: "btn btn-success" %>
+      <% end %>
+    </div>
   </div>
 </div>
