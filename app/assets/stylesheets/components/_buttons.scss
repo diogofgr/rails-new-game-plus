@@ -1,0 +1,42 @@
+.btn-facebook {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: $facebook-blue-light;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.btn-facebook:hover {
+  color: white;
+  background-color: $facebook-blue;
+  transition: all 0.2s ease;
+}
+
+.btn-orange {
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: solid white 1.5px;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-orange:hover {
+  color: white;
+  background-color: $orange;
+  transition: all 0.2s ease;
+}
+.btn-yellow {
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: solid white 1.5px;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-yellow:hover {
+  color: white;
+  background-color: $yellow-dark;
+  transition: all 0.2s ease;
+}
