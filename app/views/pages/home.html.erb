@@ -1,6 +1,12 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'game-1926907.png' %>);">
   <div class="banner-content">
-    <h1>'Ello, stranger...</h1>
+    <% if current_user.nil? %>
+      <h1>'Ello, stranger...</h1>
+    <%# elsif current_user.first_name.nil? %>
+      <%#= '<h1>Ello, #{current_user.first_name}...</h1>'.html_safe %>
+    <% else %>
+      <h1>Straaaanger! You're back!</h1>
+    <% end %>
     <h2>What're ya buyin?</h2>
 
     <%= form_tag(products_path, :method => "get", id: "search-form") do %>
