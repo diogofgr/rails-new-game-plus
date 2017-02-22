@@ -5,4 +5,6 @@ class ProductOffer < ApplicationRecord
 
   validates :price, presence: true
   validates :location, presence: true
+
+
 end
