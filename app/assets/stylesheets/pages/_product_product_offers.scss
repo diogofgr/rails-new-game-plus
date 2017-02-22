@@ -1,4 +1,22 @@
+.product-details{
+  display: flex;
+
+}
+
 .offer-games{
   background: $gray-lighter;
   margin-bottom: 140px;
+}
+
+.offer-games-row, .offer-games-header{
+  display: flex;
+  flex: 1 1 auto;
+  h3{
+    margin: 10px 0px;
+    color: black;
+  }
+}
+
+.offer-games-header{
+  background: $gray;
 }
