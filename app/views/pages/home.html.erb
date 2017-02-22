@@ -2,14 +2,10 @@
   <div class="banner-content">
     <h1>'Ello, stranger...</h1>
     <h2>What're ya buyin?</h2>
-    <form action="products/index" class="form-inline">
-      <input class="wide" type="text" placeholder="My Little Pony">
-      <input type="submit" value="Let's go!" class="btn btn-primary">
 
-    </form>
-      <%= form_tag(products_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Games" %>
-      <%= submit_tag "Search", :name => nil %>
+    <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Games", class: "wide" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
     <% end %>
 
   </div>

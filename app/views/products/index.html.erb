@@ -1,10 +1,11 @@
-<h1>All games</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="wrapper text-center">
+  <h1>Games for Sale</h1>
 
-<!-- Warning to show if search doesnt find anything: -->
-<% if @products.blank? %>
-  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
-<% end %>
+  <!-- Warning to show if search doesnt find anything: -->
+  <% if @products.blank? %>
+    <h4>Sorry, there is currently no <%= params[:search] %> for sale.</h4>
+  <% end %>
+</div>
 
 <div class="container">
   <div class="row">
