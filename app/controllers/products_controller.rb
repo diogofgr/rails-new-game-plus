@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
   def index
-    # // Got this from
-    #  http://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
-    # I think it's not working because it's for active records
-    @products = Product.where(nil) # creates an anonymous scope
-    # @products = @products.genre(params[:genre]) if params[:genre].present?
-    # @products = @products.location(params[:location]) if params[:location].present?
-    @products = @products.starts_with(params[:starts_with]) if params[:starts_with].present?
+    @products = Product.all
+    if params[:search]
+      @products = Product.search(params[:search]).order("created_at DESC")
+    else
+      @products = Product.all.order("created_at DESC")
+    end
+
   end
 
 
@@ -14,4 +14,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
+
 end
+
