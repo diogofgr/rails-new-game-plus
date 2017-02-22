@@ -36,7 +36,7 @@
           <% else %>
             <li><%= link_to "Profile", user_path(current_user) %></li>
             <li><%= link_to "Sell a game", new_user_product_offer_path(current_user) %></li>
-            <li><%= link_to "Log out", destroy_user_session_path(current_user), method: :delete %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           <% end  %>
         </ul>
       </div>
