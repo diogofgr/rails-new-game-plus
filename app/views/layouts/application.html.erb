@@ -10,11 +10,19 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'layouts/navbar' %>
-    <p class="alert"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div class="wrapper" id="header">
+      <%= render 'layouts/navbar' %>
+      <p class="alert"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+
+    <div class="wrapper" id="page-body">
+      <%= yield %>
+    </div>
+
+    <div class="wrapper" id="footer">
+      <%= render 'layouts/footer' %>
+    </div>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
