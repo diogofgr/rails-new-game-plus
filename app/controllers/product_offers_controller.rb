@@ -18,9 +18,12 @@ class ProductOffersController < ApplicationController
         "Accept" => "application/json"
       }
     @results = []
-    results.body.each_with_index do |game, index|
-      game_array = [game["name"], game["cover"]["url"], game["release_dates"].first["y"]]
-      @results << game_array
+    results.body.each do |game|
+      game["cover"].nil? ? game_cover_url = "http://placehold.it/300x500" : game_cover_url = game["cover"]["url"]
+      game["release_dates"].nil? ? release_date = "Unknown" : release_date = game["release_dates"].first["y"]
+
+      game_hash = {name: game["name"], cover_url: game_cover_url, release_date: release_date}
+      @results << game_hash
     end
     @results
   end
