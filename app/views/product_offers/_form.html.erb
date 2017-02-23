@@ -1,7 +1,7 @@
 <%= simple_form_for [current_user, @product_offer] do |po| %>
 
   <!-- po.input :product_id, collection: Product.all -->
-  <%= input :gid, as: :hidden, value: "", id: 'game-id' %>
+
 
   <%= po.input :price %>
   <%= po.input :location %>
