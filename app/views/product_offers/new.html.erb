@@ -12,17 +12,17 @@
       </div>
     </div>
     <div class="row">
-      <% @results.each_with_index do |game, i| %>
+      <% @results.each do |game| %>
         <div class="col-xs-12 col-sm-4 col-md-3">
           <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.9)), url('http:<%= game[:cover_url] %>')">
             <div class="card-category">Popular</div>
-            <div class="card-description">
+              <div class="card-description">
                 <h2><%= game[:name] %></h2>
                 <p><%= game[:release_date] %></p>
                 <p>GID: <%= game[:gid] %></p>
 
               </div>
-              <div class="card-link" data-game-id="<%= i %>"></div>
+              <div class="card-link" data-game-id="<%= game[:gid] %>"></div>
             <!-- link_to '', '', {class: 'card-link'} -->
           </div>
         </div>
@@ -50,7 +50,11 @@
       $('.card-link').on('click', function(event) {
         console.log(event.target);
         console.log($(event.target).data("gameId"));
-        console.log();
+
+        var gid = $(event.target).data("gameId");
+        $('#game-id').val(gid);
+        $('#product_offer_gid').val(gid);
+
       });
     });
   <% end %>
