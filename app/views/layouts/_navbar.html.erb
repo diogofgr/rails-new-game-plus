@@ -44,7 +44,7 @@
       <% if user_session.nil? %>
         <%= link_to "Sign up!", new_user_registration_path, class: "navbar-wagon-item btn-yellow btn" %>
       <% else %>
-        <%= link_to "Sell a game!", new_user_product_offer_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %>
+        <%= link_to "Sell a game!", new_user_product_offer_path(current_user), class: "navbar-wagon-item btn-yellow btn" %>
       <% end  %>
   </div>
 
