@@ -25,7 +25,8 @@ class ProductOffersController < ApplicationController
       game_hash = {name: game["name"], cover_url: game_cover_url, release_date: release_date}
       @results << game_hash
     end
-    @results
+    @product_offer = ProductOffer.new
+    render :new
   end
 
   def create
@@ -67,9 +68,10 @@ class ProductOffersController < ApplicationController
 
   def destroy
   end
-end
 
 private
   def product_offer_params
     params.require(:product_offer).permit(:price, :location, :product_id)
   end
+
+end
