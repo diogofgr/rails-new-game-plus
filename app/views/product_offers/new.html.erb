@@ -6,25 +6,29 @@
 <% if !@results.nil? && !@results.empty? %>
   <div class="row">
     <div class="col-xs-12">
-      <div class="container text-center" style= "border-style: dashed;">
+      <div class="container text-center">
         <h3> Select a game from the list: </h3>
       </div>
     </div>
   </div>
   <div class="row">
-    <% @results.each do |game| %>
+    <% @results.each_with_index do |game, i| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://placehold.it/350x500')">
           <div class="card-category">Popular</div>
           <div class="card-description">
               <h2><%= game[:name] %></h2>
               <p><%= game[:release_date] %></p>
+              <p><%= game[:gid] %></p>
+
             </div>
-          <%= link_to '', game, {class: 'card-link'}%>
+            <div class="card-link" data-game-id="<%= i %>"></div>
+          <!-- link_to '', '', {class: 'card-link'} -->
         </div>
       </div>
     <% end %>
   </div>
+  <!-- details form -->
   <div class="row">
     <div class = 'form col-md-4 col-md-offset-4'>
       <%= render 'form' %>
@@ -38,6 +42,18 @@
     <%= render 'form_search' %>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $('.card-link').on('click', function(event) {
+        console.log(event.target);
+        console.log($(event.target).data("gameId"));
+        console.log();
+      });
+    });
+  <% end %>
+<% end %>
 
 
 
