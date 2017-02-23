@@ -11,7 +11,8 @@ class ProductOffersController < ApplicationController
 
   def search
     @search_term = params[:search]
-    url = "https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name%2Crelease_dates%2Ccover&limit=12&order=name%3Aasc&search=" + @search_term
+    search_term = @search_term.gsub(" ", "")
+    url = "https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name%2Crelease_dates%2Ccover&limit=12&order=release_dates.date%3Adesc&search=" + search_term
     results = Unirest.get url,
       headers:{
         "X-Mashape-Key" => ENV["x_mashape_key"],
