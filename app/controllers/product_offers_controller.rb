@@ -31,23 +31,22 @@ class ProductOffersController < ApplicationController
   end
 
   def create
-    if find_product_with_gid.nil?
-      new_product = @results.find(params[:gid])
-      @product = Product.create(new_product)
+    if find_product_with_gid
+      @product = Product.find_by(gid: params["product_offer"]["gid"].to_i)
     else
-      @product = find_product_with_gid
+      new_product = search_api(params["product_offer"]["gid"].to_i)
+      @product = Product.create(new_product)
     end
 
 
     @user = current_user
 
-    @new_product_offer = ProductOffer.new(stronger_params)
+    @new_product_offer = ProductOffer.new(product_offer_params)
     @new_product_offer.user = @user
     @new_product_offer.product = @product
     #// @new_product_offer.product - currently being asked to user to input as a integer
-
     if @new_product_offer.save
-      redirect_to product_path(product_offer_params[:product_id])
+      redirect_to product_path(@new_product_offer.product_id)
     else
       render :new
     end
@@ -67,12 +66,27 @@ private
     params.require(:product_offer).permit(:price, :location, :product_id, :gid)
   end
 
-  def stronger_params
-    pa = product_offer_params
-    params[{price: pa[:price], location: pa[:location], product_id: pa[:product_id]}]
-  end
+  # def stronger_params
+  #   pa = product_offer_params
+  #   params[{price: pa[:price], location: pa[:location], product_id: pa[:product_id]}]
+  # end
 
   def find_product_with_gid
-    Product.find(params["product_offer"]["gid"].to_i)
+    Product.exists?(gid: params["product_offer"]["gid"].to_i)
   end
+
+  def search_api(gid)
+    url = "https://igdbcom-internet-game-database-v1.p.mashape.com/games/#{gid}?fields=*"
+    @result = Unirest.get url,
+      headers:{
+        "X-Mashape-Key" => ENV["x_mashape_key"],
+        "Accept" => "application/json"
+      }
+    @result = @result.body.first
+    @result["cover"].nil? ? game_cover_url = "http://placehold.it/300x500" : game_cover_url = @result["cover"]["url"]
+    @result["release_dates"].nil? ? release_date = "Unknown" : release_date = @result["release_dates"].first["y"]
+
+    @game_hash = {name: @result["name"], cover_url: game_cover_url, release_year: release_date, gid: @result["id"]}
+  end
+
 end
