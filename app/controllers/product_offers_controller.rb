@@ -23,7 +23,7 @@ class ProductOffersController < ApplicationController
       game["cover"].nil? ? game_cover_url = "http://placehold.it/300x500" : game_cover_url = game["cover"]["url"]
       game["release_dates"].nil? ? release_date = "Unknown" : release_date = game["release_dates"].first["y"]
 
-      game_hash = {name: game["name"], cover_url: game_cover_url, release_date: release_date}
+      game_hash = {name: game["name"], cover_url: game_cover_url, release_date: release_date, gid: game["id"]}
       @results << game_hash
     end
     @product_offer = ProductOffer.new
@@ -31,10 +31,18 @@ class ProductOffersController < ApplicationController
   end
 
   def create
+    if find_product_with_gid.nil?
+      new_product = @results.find(params[:gid])
+      @product = Product.create(new_product)
+    else
+      @product = find_product_with_gid
+    end
+
     @user = current_user
 
-    @new_product_offer = ProductOffer.new(product_offer_params)
-    @new_product_offer.user =  @user
+    @new_product_offer = ProductOffer.new(stronger_params)
+    @new_product_offer.user = @user
+    @new_product_offer.product = @product
     #// @new_product_offer.product - currently being asked to user to input as a integer
 
     if @new_product_offer.save
@@ -42,23 +50,6 @@ class ProductOffersController < ApplicationController
     else
       render :new
     end
-
-
-# 3.times do
-#   user_offset = rand(User.count)
-#   game_offset = rand(Product.count)
-#   rand_user = User.offset(user_offset).first
-#   rand_game = Product.offset(game_offset).first
-
-#   offer = ProductOffer.new
-#   offer.user = rand_user
-#   offer.product = rand_game
-#   offer.price = rand(5..15)
-#   offer.location = "some location"
-#   offer.save
-# end
-
-
   end
 
   def edit
@@ -75,4 +66,12 @@ private
     params.require(:product_offer).permit(:price, :location, :product_id)
   end
 
+  def stronger_params
+    pa = product_offer_params
+    params[{price: pa[:price], location: pa[:location], product_id: pa[:product_id]}]
+  end
+
+  def find_product_with_gid
+    Product.find(params[:gid])
+  end
 end
