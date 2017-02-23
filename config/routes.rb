@@ -14,6 +14,13 @@ Rails.application.routes.draw do
     resources :product_offers, only: [:index, :show, :new]
   end
 
+  resources :product_offers, only: [:new] do
+    collection do
+      post 'search'
+    end
+  end
+
+
   # get 'transactions/index'
 
   # get 'transactions/show'
