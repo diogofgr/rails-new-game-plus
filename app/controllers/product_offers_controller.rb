@@ -23,7 +23,7 @@ class ProductOffersController < ApplicationController
       game["cover"].nil? ? game_cover_url = "http://placehold.it/300x500" : game_cover_url = game["cover"]["url"]
       game["release_dates"].nil? ? release_date = "Unknown" : release_date = game["release_dates"].first["y"]
 
-      game_hash = {name: game["name"], cover_url: game_cover_url, release_date: release_date}
+      game_hash = {name: game["name"], cover_url: game_cover_url, release_date: release_date, gid: game["id"]}
       @results << game_hash
     end
     @product_offer = ProductOffer.new
@@ -31,6 +31,7 @@ class ProductOffersController < ApplicationController
   end
 
   def create
+
     @user = current_user
 
     @new_product_offer = ProductOffer.new(product_offer_params)
