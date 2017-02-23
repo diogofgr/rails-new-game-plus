@@ -1,10 +1,11 @@
 <%= simple_form_for [current_user, @product_offer] do |po| %>
 
   <!-- po.input :product_id, collection: Product.all -->
-  <%= po.input :gid, value: 0, as: :hidden, id: 'game-id' %>
+  <%= po.input :gid, value: 0, as: :hidden %>
 
-  <%= po.input :price %>
-  <%= po.input :location %>
+
+  <%= po.input :price, placeholder: "10" %>
+  <%= po.input :location, placeholder: "Lisbon" %>
   <%= po.button :submit %>
 
 <% end %>

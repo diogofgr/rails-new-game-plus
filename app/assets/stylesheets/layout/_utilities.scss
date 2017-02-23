@@ -14,7 +14,7 @@
 .bg-black {
   background: #4a4a4a;
 }
-.bg-grey {
+.bg-gray {
   background: #aeaeae;
 }
 .bg-blue {
@@ -28,3 +28,10 @@
   margin-bottom: 120px;
 }
 
+.page-titles{
+  color: $gray;
+}
+
+*{
+  color: $gray
+}
