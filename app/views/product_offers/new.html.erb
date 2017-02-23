@@ -22,7 +22,7 @@
               <p><%= game[:gid] %></p>
 
             </div>
-            <div class="card-link" data-game-id="<%= i %>"></div>
+            <div class="card-link" data-game-id="<%= game[:gid] %>"></div>
           <!-- link_to '', '', {class: 'card-link'} -->
         </div>
       </div>
@@ -49,7 +49,11 @@
       $('.card-link').on('click', function(event) {
         console.log(event.target);
         console.log($(event.target).data("gameId"));
-        console.log();
+
+        var gid = $(event.target).data("gameId");
+        $('#game-id').val(gid);
+        $('#product_offer_gid').val(gid);
+
       });
     });
   <% end %>

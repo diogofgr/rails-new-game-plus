@@ -64,7 +64,7 @@ class ProductOffersController < ApplicationController
 
 private
   def product_offer_params
-    params.require(:product_offer).permit(:price, :location, :product_id)
+    params.require(:product_offer).permit(:price, :location, :product_id, :gid)
   end
 
   def stronger_params
@@ -73,6 +73,6 @@ private
   end
 
   def find_product_with_gid
-    Product.find(params[:gid])
+    Product.find(params["product_offer"]["gid"].to_i)
   end
 end
