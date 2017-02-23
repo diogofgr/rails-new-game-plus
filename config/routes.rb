@@ -11,8 +11,15 @@ Rails.application.routes.draw do
   end
 
   resources :products, only: [:index, :show] do
-    resources :product_offers, only: [:index, :show]
+    resources :product_offers, only: [:index, :show, :new]
   end
+
+  resources :product_offers, only: [:new] do
+    collection do
+      post 'search'
+    end
+  end
+
 
   # get 'transactions/index'
 
