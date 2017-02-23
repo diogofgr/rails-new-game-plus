@@ -9,6 +9,22 @@ class ProductOffersController < ApplicationController
     @product_offer = ProductOffer.new
   end
 
+  def search
+    @search_term = params[:search]
+    url = "https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name%2Crelease_dates%2Ccover&limit=12&order=name%3Aasc&search=" + @search_term
+    results = Unirest.get url,
+      headers:{
+        "X-Mashape-Key" => ENV["x_mashape_key"],
+        "Accept" => "application/json"
+      }
+    @results = []
+    results.body.each_with_index do |game, index|
+      game_array = [game["name"], game["cover"]["url"], game["release_dates"].first["y"]]
+      @results << game_array
+    end
+    @results
+  end
+
   def create
     @user = current_user
 
