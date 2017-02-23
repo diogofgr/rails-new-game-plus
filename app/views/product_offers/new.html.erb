@@ -1,23 +1,59 @@
-<div class = "text-align">
-<h1>Sweet ProductOffers#new</h1>
-<p>Find me in app/views/product_offers/new.html.erb</p>
-
-<h3>Rendering a form here HEllos </h3>
-
+<div class = "container text-center">
+  <h1>Sell a game!</h1>
 </div>
 
-<div class = 'form col-md-4 col-md-offset-4'>
-  <%= render 'form_search' %>
-</div>
 
 <% if !@results.nil? && !@results.empty? %>
-  <div class = 'form col-md-12'>
-    <%= @results %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="container text-center">
+        <h3> Select a game from the list: </h3>
+      </div>
+    </div>
   </div>
+  <div class="row">
+    <% @results.each_with_index do |game, i| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://placehold.it/350x500')">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+              <h2><%= game[:name] %></h2>
+              <p><%= game[:release_date] %></p>
+              <p><%= game[:gid] %></p>
 
-  <div class = 'form col-md-4 col-md-offset-4'>
-    <%= render 'form' %>
+            </div>
+            <div class="card-link" data-game-id="<%= i %>"></div>
+          <!-- link_to '', '', {class: 'card-link'} -->
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- details form -->
+  <div class="row">
+    <div class = 'form col-md-4 col-md-offset-4'>
+      <%= render 'form' %>
+    </div>
   </div>
 <% end %>
+
+<div class="row">
+  <div class = 'form col-md-4 col-md-offset-4'>
+    <h3> Search for a game to add: </h3>
+    <%= render 'form_search' %>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $('.card-link').on('click', function(event) {
+        console.log(event.target);
+        console.log($(event.target).data("gameId"));
+        console.log();
+      });
+    });
+  <% end %>
+<% end %>
+
 
 

@@ -38,6 +38,7 @@ class ProductOffersController < ApplicationController
       @product = find_product_with_gid
     end
 
+
     @user = current_user
 
     @new_product_offer = ProductOffer.new(stronger_params)
