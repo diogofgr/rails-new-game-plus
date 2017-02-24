@@ -59,6 +59,8 @@ class ProductOffersController < ApplicationController
   end
 
   def destroy
+    @product_offer =ProductOffer.find(params[:id])
+    @product_offer.destroy
   end
 
 private
