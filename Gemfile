@@ -27,6 +27,9 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+
+gem "letter_opener", group: :development
+
 group :development, :test do
   gem 'web-console', '>= 3.3.0'
 
