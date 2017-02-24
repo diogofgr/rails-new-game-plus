@@ -16,7 +16,7 @@ all_games = [ "Pro Evolution Soccer", "Batman Arkham", "Tomb Raider and the Curs
 
 # Seed with users
 all_names.each do |name|
-  User.create(email: "#{name}_69@mail.pt", password: "123456")
+  User.create(first_name: "#{name.capitalize}", email: "#{name}_69@mail.pt", password: "123456")
 end
 
 # Seed with games
