@@ -16,11 +16,11 @@
         <div class="col-xs-6 col-sm-4 col-md-3">
           <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.9)), url('http:<%= game[:cover_url] %>')">
             <div class="card-category">Popular</div>
-              <div class="card-description">
-                <h2><%= game[:name] %></h2>
-                <p><%= game[:release_date] %></p>
-              </div>
-              <div class="card-link" data-game-id="<%= game[:gid] %>"></div>
+            <div class="card-description">
+              <h2><%= game[:name] %></h2>
+              <p><%= game[:release_date] %></p>
+            </div>
+            <div class="card-link" data-game-id="<%= game[:gid] %>"></div>
             <!-- link_to '', '', {class: 'card-link'} -->
           </div>
         </div>
@@ -46,7 +46,8 @@
   <%= javascript_tag do %>
     $(document).ready(function() {
       $('.card-link').on('click', function(event) {
-        $(this).parent().toggleClass('bordered');
+        $('.card').removeClass('bordered');
+        $(this).parent().addClass('bordered');
 
         var gid = $(event.target).data("gameId");
         $('#game-id').val(gid);

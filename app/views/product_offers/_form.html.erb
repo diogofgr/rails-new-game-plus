@@ -1,5 +1,5 @@
 <%= simple_form_for [current_user, @product_offer] do |po| %>
-
+  <%= po.error_notification %>
   <!-- po.input :product_id, collection: Product.all -->
   <%= po.input :gid, value: 0, as: :hidden %>
 

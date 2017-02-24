@@ -1,9 +1,22 @@
-<h1>Hi <%= @user.first_name %>!</h1>
+<style>
+  .email-body{
+    margin-left: 15px;
+  }
+  .main-text{
+    text-align: left;
+    max-width: 750px;
+    margin-left: 15px;
+  }
+</style>
 
-<h3>Thanks for signing up to NewGame+</h3>
-
-<p>We made this app to make it easier for everyone to play more videogames, while spending less money. Here you can sell your old games and buy used games from other users.</p>
-<p>This is an ongoing project so you will certainly find a lot of bugs and missing features. Bear with us. If you want to report bugs or suggest any changes email us at:</p>
-<h5>info@bigbura.co</h5>
-<p>Cheers,</p>
-<p>Ciaran, Diogo and Filipe</p>
+<div class="email-body">
+  <h1>Hi <%= @user.first_name %>!</h1>
+  <h3>Thanks for signing up to NewGame+</h3>
+<div class="main-text">
+  <p>We made this app to make it easier for everyone to play more videogames, while spending less money. Here you can sell your old games and buy used games from other users.</p>
+  <p>This is an ongoing project so you will certainly find a lot of bugs and missing features. Bear with us. If you want to report bugs or suggest any changes email us at:</p>
+  <h5>diogofgr@gmail.com</h5>
+  <p>Cheers,</p>
+  <p>Ciaran, Diogo and Filipe</p>
+</div>
+</div>
