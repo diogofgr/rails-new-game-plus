@@ -41,59 +41,55 @@
     <div class="container" id="games-selling" >
       <div class="row">
         <h3 class="dark-text">Games You're Selling:</h3>
-
         <% current_user.product_offers.each do |product_offer| %>
           <div class="col-xs-6 col-sm-4 col-md-3">
             <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.9)), url('http:<%= product_offer.product.cover_url %>')">
-                <div class="card-description">
-                  <h2><%= product_offer.product.name %></h2>
-                  <p>You're selling it for <%= product_offer.price %>€</p>
-                </div>
-                <div class="card-link" data-game-id="<%= product_offer[:gid] %>"></div>
-              <!-- link_to '', '', {class: 'card-link'} -->
+              <div class="card-description">
+                <h2><%= product_offer.product.name %></h2>
+                <p>You're selling it for <%= product_offer.price %>€</p>
+                   <%= link_to "Delete", user_product_offer_path({user_id: current_user.id, id: product_offer.id}), method: :delete %>
+              </div>
             </div>
           </div>
         <% end %>
-        <!-- link_to 'Sell your game', new_user_product_offer_path, {class: 'btn btn-lg btn-warning'} -->
       </div>
-    </div>
 
-    <div class="container tab-content-hide" id="profile-update">
-      <div class="row">
-        <h3 class="dark-text">Content Tab 2</h3>
-        <% current_user.product_offers.each do |product_offer| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://unsplash.it/500x500')">
-            <div class="card-category">Popular</div>
-            <div class="card-description">
+      <div class="container tab-content-hide" id="profile-update">
+        <div class="row">
+          <h3 class="dark-text">Content Tab 2</h3>
+          <% current_user.product_offers.each do |product_offer| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://unsplash.it/500x500')">
+              <div class="card-category">Popular</div>
+              <div class="card-description">
+                  <h2><%= product_offer.product.name %></h2>
+                  <p>You're selling it for <%= product_offer.price %></p>
+                </div>
+              <div class="card-user">
+                  <img src="images/papillard.jpeg" class="avatar">
+                </div>
+              <%= link_to '', {class: 'card-link'}%>
+            </div>
+          </div>
+          <% end %>
+          <!-- link_to 'Sell your game', new_user_product_offer_path, {class: 'btn btn-lg btn-warning'} -->
+        </div>
+      </div>
+
+      <div class="container tab-content-hide" id="other-content" >
+        <div class="row">
+          <h3 class="dark-text">Profile info:</h3>
+          <% current_user.product_offers.each do |product_offer| %>
+          <div class="col-xs-6 col-sm-4">
+            <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://unsplash.it/500x500')">
+              <div class="card-category">Popular</div>
+              <div class="card-description">
                 <h2><%= product_offer.product.name %></h2>
                 <p>You're selling it for <%= product_offer.price %></p>
               </div>
-            <div class="card-user">
-                <img src="images/papillard.jpeg" class="avatar">
-              </div>
-            <%= link_to '', {class: 'card-link'}%>
-          </div>
-        </div>
-        <% end %>
-        <!-- link_to 'Sell your game', new_user_product_offer_path, {class: 'btn btn-lg btn-warning'} -->
-      </div>
-    </div>
-
-    <div class="container tab-content-hide" id="other-content" >
-      <div class="row">
-        <h3 class="dark-text">Profile info:</h3>
-        <% current_user.product_offers.each do |product_offer| %>
-        <div class="col-xs-6 col-sm-4">
-          <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://unsplash.it/500x500')">
-            <div class="card-category">Popular</div>
-            <div class="card-description">
-              <h2><%= product_offer.product.name %></h2>
-              <p>You're selling it for <%= product_offer.price %></p>
+              <%= link_to '', {class: 'card-link'}%>
             </div>
-            <%= link_to '', {class: 'card-link'}%>
           </div>
-        </div>
         <% end %>
         <!-- link_to 'Sell your game', new_user_product_offer_path, {class: 'btn btn-lg btn-warning'} -->
       </div>
