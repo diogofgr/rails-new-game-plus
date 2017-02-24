@@ -6,9 +6,10 @@
       <h3>Playstation 4</h3>
       <p>url:</p>
     </div>
-    <div class="container text-right">
-      <%= image_tag("http://placehold.it/175x250", :alt => "") %>
-    </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.9)), url('http:<%= @product.cover_url %>')">
+          </div>
+        </div>
   </div>
 </div>
 
