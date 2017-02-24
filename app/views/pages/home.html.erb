@@ -5,13 +5,13 @@
     <%# elsif current_user.first_name.nil? %>
       <%#= '<h1>Ello, #{current_user.first_name}...</h1>'.html_safe %>
     <% else %>
-      <h1>Straaaanger! You're back!</h1>
+      <h1><%= current_user.first_name.nil? ? "Straaaanger" : current_user.first_name %>, you're back!</h1>
     <% end %>
     <h2>What're ya buyin?</h2>
 
     <%= form_tag(products_path, :method => "get", id: "search-form") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search Games", class: "wide" %>
-      <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
     <% end %>
 
   </div>
