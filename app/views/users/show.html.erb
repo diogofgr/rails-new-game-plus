@@ -42,7 +42,7 @@
       <div class="row">
         <h3 class="dark-text">Games You're Selling:</h3>
         <% current_user.product_offers.each do |product_offer| %>
-          <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="col-xs-12 col-sm-4 col-md-3">
             <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.9)), url('http:<%= product_offer.product.cover_url %>')">
               <div class="card-description">
                 <h2><%= product_offer.product.name %></h2>
