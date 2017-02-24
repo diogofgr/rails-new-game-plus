@@ -45,7 +45,7 @@
         <h3>€ <%= offer.price %>.00</h3>
       </div>
       <div class="container">
-        <%= link_to 'Buy', root_path, class: "btn btn-success" %>
+        <%= link_to 'Buy', new_product_offer_transaction_path(product_offer_id: offer.id), class: "btn btn-success" %>
       </div>
     </div>
 
