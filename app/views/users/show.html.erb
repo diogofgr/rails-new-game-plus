@@ -48,10 +48,12 @@
                 <h2><%= product_offer.product.name %></h2>
                 <p>You're selling it for <%= product_offer.price %>€</p>
               </div>
-            <div style= "position:absolute;bottom: 0;right: 0;"><%= link_to "Delete", user_product_offer_path({user_id: current_user.id, id: product_offer.id}), method: :delete, class: "btn btn-orange" %></div>
+              <div style= "position:absolute;bottom: 0;right: 0;"><%= link_to "Delete", user_product_offer_path({user_id: current_user.id, id: product_offer.id}), method: :delete, class: "btn btn-orange" %></div>
+            </div>
           </div>
         <% end %>
       </div>
+    </div>
 
       <div class="container tab-content-hide" id="profile-update">
         <div class="row">
