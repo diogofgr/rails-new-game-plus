@@ -1,0 +1,14 @@
+<h1>So! You want to buy the game?</h1>
+
+<% @owner = User.find(@product_offer.user_id) %>
+<h3>Then tell <%= @owner.first_name %> where to send it!</h3>
+
+<%= simple_form_for [current_user, @transaction] do |t| %>
+  <%= t.error_notification %>
+  <%= t.input :return_address, value: @owner.address, as: :hidden %>
+  <%= t.input :buyer_id, value: current_user.id, as: :hidden %>
+  <%= t.input :product_offer_id, value: @product_offer.id, as: :hidden %>
+  <%= t.input :delivery_address, placeholder: "123 Your Street, Lisbon" %>
+  <%= t.button :submit %>
+
+<% end %>

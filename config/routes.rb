@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :users do
+    resources :transactions, only: [:show, :create]
     resources :product_offers do
       resources :transactions, only: [:show]
     end
@@ -11,10 +12,12 @@ Rails.application.routes.draw do
   end
 
   resources :products, only: [:index, :show] do
-    resources :product_offers, only: [:index, :show, :new]
+    resources :product_offers, only: [:index, :show, :new] do
+    end
   end
 
   resources :product_offers, only: [:new] do
+    resources :transactions, only: [:new]
     collection do
       post 'search'
     end
