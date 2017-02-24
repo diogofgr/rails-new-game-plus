@@ -45,6 +45,16 @@
   padding: 0 20px;
 }
 
+.navbar-wagon-item > .dropdown-mobile {
+  position: absolute;
+  top: 5px;
+  right: 2%;
+}
+
+.fa-bars {
+  padding-top: 7px;
+}
+
 /* Navbar standard link */
 .navbar-wagon-link {
   color: #616668;

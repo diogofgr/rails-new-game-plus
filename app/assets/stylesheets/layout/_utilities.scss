@@ -25,10 +25,22 @@
 }
 
 #page-body {
-  margin-bottom: 120px;
+  padding-bottom: 120px;
+  height: 100%;
 }
 
 .page-titles{
   color: $gray;
 }
 
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
