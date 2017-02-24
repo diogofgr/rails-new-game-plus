@@ -45,13 +45,12 @@
               <div class="card-description">
                 <h2><%= product_offer.product.name %></h2>
                 <p> Your selling it for <%= product_offer.price %>€</p>
+                 <%= link_to "Delete", user_product_offer_path({user_id: current_user.id, id: product_offer.id}), method: :delete %>
               </div>
-              <div class="card-link" data-game-id="<%= product_offer[:gid] %>"></div>
-            <!-- link_to '', '', {class: 'card-link'} -->
           </div>
         </div>
       <% end %>
-      <!-- link_to 'Sell your game', new_user_product_offer_path, {class: 'btn btn-lg btn-warning'} -->
+
     </div>
   </div>
 
